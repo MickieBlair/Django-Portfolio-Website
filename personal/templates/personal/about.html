@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="div_about">
+	<div class="inner_div_about">
+			<div class="top_pic">
+				<img class = "responsive img_radius image_link" src="{{image_default.image.url}}" title="{{image_default.image_caption}}" alt="{{image_default.image_caption}}" onclick="location.href='{% url 'image' image_default.slug %}'">
+			</div>
+			<div class="about_body"> 
+				<h4 class="titles">{{profile.title}}</h4>
+				{{profile.body|safe}} 
+
+				<h5 class="titles">Hobbies:</h5>
+				<ul>
+					{% for hobby in hobbies %}
+						<li class="pb-1">{{hobby.hobby_name|safe}}{% if hobby.external_link %} -  <a class = "link" href="{{hobby.external_link.link_url}}"> {{hobby.external_link}} {% endif %}</a></li>
+					{% endfor %}
+				</ul>
+
+				<h5 class="titles">Accomplishments:</h5>
+				<ul>
+					{% for acc in accomplishments %}
+					<li class="pb-1">{{acc.acc_name|safe}}</li>
+					{% endfor %}
+				</ul>
+
+				<h5 class="titles">Education:</h5>
+				<ul>
+					{% for edu in education %}
+					<li class="pb-1"><text class="font-weight-bold">{{edu.type_edu}}</text>, <text>{{edu.desc}}</text> <br><text>{{edu.school}}</text>, <text>{{edu.location}}</text> <br><text>{{edu.year}}</text></li>
+					{% endfor %}
+				</ul>
+
+
+			</div>
+
+
+			<div class="additional_about_images">
+				{% for image in images %}
+				<div class="additional_about_image"> 
+					<img class = "responsive img_radius image_link" src="{{image.image.url}}" title="{{image.image_caption}}" alt="{{image.image_caption}}" onclick="location.href='{% url 'image' image.slug %}'">			
+				</div>
+				{% endfor %}
+			</div>
+	</div>		
+
+</div>
+
+</div>
+
+</div>
+{% endblock content %}

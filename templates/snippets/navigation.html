@@ -1,0 +1,132 @@
+ {% load static %}
+<div id="nav_all">
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-custom mb-2">
+  <div class="outer_box">
+    <div class = "name_logo">
+      <a class="logo_name1" href="{% url 'home' %}">Mickie Blair</a> 
+    </div>
+  </div>
+  
+
+  <div>
+  <button class = "mobile_button_search" type="button" id="search_glass_mobile"
+            onclick="closeMobile()">
+    <span id = "icon_mobile" class="fas fa-search" aria-hidden="true"></span>
+  </button>
+  <script type="text/javascript">
+    function closeMobile() {
+                var searchbox = document.getElementById('searchDiv');
+                var icon_mobile = document.getElementById('icon_mobile');
+
+
+                if (icon_mobile.classList.contains('fa-search')) {
+                        icon_mobile.classList.remove('fa-search');
+                        icon_mobile.classList.add('fa-times');
+                        searchbox.style.display = "block";
+                    } else {
+                        icon_mobile.classList.remove('fa-times');
+                        icon_mobile.classList.add('fa-search');
+                        searchbox.style.display = "none";
+                    }
+                  } 
+  </script>
+
+  <button class="navbar-toggler" id="menu_button" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="closeMenu()">
+    <span id = "menu_bars" class="fas fa-bars" aria-hidden="true">
+  </button>     
+          <script type="text/javascript">
+              function closeMenu() {
+                var menu_bars = document.getElementById('menu_bars');
+                var searchbox = document.getElementById('searchDiv');
+                var icon_mobile = document.getElementById('icon_mobile');
+                if (searchbox.style.display == "block")
+                {
+                  closeMobile()
+                  searchbox.style.display = "none";
+                }
+                
+
+
+
+                if (menu_bars.classList.contains('fa-bars')) {
+                        menu_bars.classList.remove('fa-bars');
+                        menu_bars.classList.add('fa-times');
+                    } else {
+                        menu_bars.classList.remove('fa-times');
+                        menu_bars.classList.add('fa-bars');
+                    }
+
+
+                  } 
+          </script>  
+          </div>    
+
+  <div class="collapse navbar-collapse" id="navbarCollapse">
+    <ul class="navbar-nav" id="navbar_ul">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'home' %}">Home </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'projects:projects' %}">Projects</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'resume' %}">Resume</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'about' %}">About</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+      </li>  
+      
+  <li class="nav-item glass">
+  <button class="search_icon search-toggler" type="button"
+            id="search_glass"
+            onclick="closeFunction()">
+            <span id = "icon" class="fas fa-search" aria-hidden="true"></span>
+        </button>         
+          <script type="text/javascript">
+              function closeFunction() {
+                var searchbox = document.getElementById('searchDiv');
+                var icon = document.getElementById('icon');
+
+
+                if (icon.classList.contains('fa-search')) {
+                        icon.classList.remove('fa-search');
+                        icon.classList.add('fa-times');
+                        searchbox.style.display = "block";
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-search');
+                        searchbox.style.display = "none";
+                    }
+                  } 
+          </script>                 
+      </li>
+    </ul> 
+  </div>
+<div class ="collapse search-collapse" id="searchDiv">
+
+  <form class="form-inline search_text" id="searchForm" method="get">
+      <form method="GET">
+        <input class="form-control2" type="text" placeholder="Search Projects..." name="q" id="id_q">
+        <button type="submit" class="search_icon2"><i class="fas fa-search big_icon"></i></button>
+  </form>
+</div>
+
+</nav>
+{% if request.user.is_authenticated and request.user.is_admin %} 
+
+{% include 'myadmin/snippets/sub_menu.html' %}
+
+{% endif %}
+
+
+  
+
+</div>

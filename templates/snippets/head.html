@@ -1,0 +1,75 @@
+  {% load static %}
+
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="{% static 'images/favicon.ico' %}"/>    
+
+    
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> 
+
+
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/myadmin_style.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/jquery-editable-select.min.css' %}">
+
+
+   <!--  Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.9.0/js/all.js"></script>
+
+    <!-- owl -->
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl.theme.default.css' %}">
+
+<!--      <script type="text/javascript"src="{% static 'js/tinymce/tinymce.min.js' %}"></script>
+     <script type="text/javascript"src="{% static 'js/tinymce/plugins/code/plugin.min.js' %}"></script>
+
+     <script type="text/javascript" src="{% static 'js/tinymce/custom.js' %}"></script> -->
+
+    <script>
+      window.addEventListener('mouseup', function(event)
+      {
+        var formSearch = document.getElementById('searchForm');
+        var searchbox = document.getElementById('searchDiv');
+        var buttonSearch = document.getElementById('search_glass');
+        var dropdown_div = document.getElementById('navbarCollapse');
+        var menu_inner_button = document.getElementById('menu_inner_button');
+        var menu_button = document.getElementById('menu_button');
+        var navbar_ul = document.getElementById('navbar_ul');
+        var search_mobile_form = document.getElementById('search_mobile_form');
+
+
+        if(searchbox.classList.contains('show')){
+          console.log(event.target);
+
+            if (event.target != formSearch && event.target.parentNode != formSearch)
+              {
+                if (searchbox.classList.contains('show'))
+                {
+                  console.log(event.target);
+                  buttonSearch.click()
+                };
+              }
+        }else if(dropdown_div.classList.contains('show')){
+          console.log(event.target);
+            if (event.target != navbar_ul && event.target.parentNode != search_mobile_form)
+              {
+                if (dropdown_div.classList.contains('show'))
+                {
+                  console.log(event.target);
+                  menu_button.click()
+                };
+              }
+        }
+      });
+    </script>    
+
+     <title>{{page_title}}</title>  
+
+
+  </head>

@@ -1,0 +1,73 @@
+{% load static %}
+
+
+<footer class="footer bg-custom">
+  <div class="ft-text">&copy {%now "Y"%}
+    Mickie Blair
+  </div>
+</footer>
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Editable Select -->
+<script type="text/javascript" src="{% static 'js/jquery-editable-select.min.js' %}"></script>
+
+<!--  drag and drop-->
+<script type="text/javascript" src="{% static 'js/Sortable.js' %}"></script>
+
+<!-- owl -->
+<script type="text/javascript" src="{% static 'js/owl.carousel.min.js' %}"></script>
+<!-- my Scripts -->
+<script type="text/javascript" src="{% static 'js/scripts.js' %}"></script>
+
+
+
+<script type="text/javascript">
+  var searchbox = document.getElementById('searchDiv');
+  var dropdown_div = document.getElementById('navbarCollapse');
+  var buttonSearch = document.getElementById('search_glass');
+  var buttonSearchMobile = document.getElementById('search_glass_mobile');
+  
+  
+
+  window.onscroll = function(e) {
+        if(searchbox.style.display == "block"){
+            console.log("Scrolling");
+            window_width = $( window ).width();
+            if (window_width >= 768){
+              var icon = document.getElementById('icon');
+              console.log("big", icon);
+
+              if (icon.classList.contains('fa-times')){
+                console.log("yes times");
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-search');
+              }                
+            } 
+
+            else {
+              var icon_mobile = document.getElementById('icon_mobile');
+                 if (icon_mobile.classList.contains('fa-times')){
+                  icon_mobile.classList.remove('fa-times');
+                  icon_mobile.classList.add('fa-search');
+                }
+              }
+              
+
+            searchbox.style.display = "none";
+
+          }else if(dropdown_div.classList.contains('show')){
+            console.log("Scrolling");
+            menu_button.click()
+            }
+  };
+</script>
+
+
